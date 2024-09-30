@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Boomi Insights
+    </title>
+    <link rel="icon" type="image/png" href="titleLogoNew.png"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="boomiInsightsLogo.png" alt="Logo" id="logo" class="logo">
+    </header>
+    <main>
+        <section id="uploadSection">
+            <h1 class="exo-2-h1-font">Upload CSV</h1>
+            <br>
+            <div class="file-upload-container">
+                <!-- Hidden file input -->
+                <input type="file" id="fileInput" accept=".csv" >
+                
+                <!-- Custom label that mimics the file input button -->
+                <label for="fileInput" class="button-19">Choose File</label>
+                
+                <!-- File name display after file is selected -->
+                <p id="fileMessage" class="custom-file-message">No file selected</p>
+
+                <div id="errorMessage" class="hidden"></div>
+
+                <h1>OR</h1>
+
+                <button id="switchToJson" class="button-19">Switch to JSON Content</button>
+            </div>
+            <!-- <div class="upload-container">
+                <input type="file" id="fileInput" accept=".csv">
+                <button id="switchToJson">Switch to JSON Content</button>
+                <p id="errorMessage" class="hidden"></p>
+            </div> -->
+        </section>
+        <section id="jsonSection" class="hidden">
+            <h1 id="JsonHeading">Paste JSON</h1>
+            <div class="json-container">
+                <textarea id="jsonInput" placeholder="Paste your JSON content here..."></textarea>
+                <button id="submitJson" style="width: 20%;" class="button-19">Submit JSON</button>
+                <p id="jsonErrorMessage" class="hidden"></p>
+            </div>
+        </section>
+        <div id="dataContainer" class="hidden">
+            <!-- Table will be dynamically inserted here -->
+        </div>
+        <div id="pieChartContainer">
+            <canvas id="pieChart" class="pieChart"></canvas>
+            <div id="summaryMessage"></div>
+        </div>
+    </main>
+    <div id="paginationContainer"></div>
+    <footer>
+        <strong><p>&copy; 2024 NeosAlpha Technologies</p></strong>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

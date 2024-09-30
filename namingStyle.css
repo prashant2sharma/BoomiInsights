@@ -1,0 +1,727 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* General body styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('Backgriund_twelve.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ensures the image covers the entire background */
+    /* background-color: #f4f4f4; */
+    color: #333;
+    font-size: 0.8vw; /* Unified font size */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    margin: 20px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 13vw;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Upload section styling */
+#uploadSection {
+    margin: 50px auto;
+    text-align: center; /* Center-align content */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 0.416vw;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 7px 7px 9px #d3d3d3,
+    inset -7px -7px 9px #ffffff;
+    max-width: 31.2vw;
+}
+
+h1 {
+    font-size: 1.248vw;
+    font-weight: bold; /* Bold headers */
+    margin: 0;
+    color: #027392;
+}
+
+/* Main content area styling */
+main {
+    flex: 1; /* This makes the main content area take up the remaining space */
+    padding: 20px;
+    text-align: center;
+}
+
+/* File input styling */
+input[type="file"] {
+    padding: 10px;
+    font-size: 0.8vw; /* Consistent font size */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Error message styling */
+#errorMessage {
+    color: rgba(184, 26, 26, 0.658);
+    margin-top: 0.93vh;
+    font-size: 0.8vw;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#jsonErrorMessage
+{
+    color: rgba(184, 26, 26, 0.658);
+    margin-top: 0.93vh;
+    font-size: 0.8vw;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Data container styling */
+#dataContainer {
+    margin: 9.3vh 0.52vw 0.52vw 0.93px;
+    padding: 1.04vw;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.416vw;
+    box-shadow: inset 7px 7px 9px #d3d3d3,
+    inset -7px -7px 9px #ffffff;
+    background-color: rgba(255, 255, 255, 0.6);
+    overflow-x: auto;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders do not overlap */
+    margin-top: 1.86vh;
+    table-layout: auto; /* Allows columns to adjust based on content */
+    background-color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #f5efef;
+    padding: 0.624vw;
+    text-align: center;
+    vertical-align: middle; /* Aligns content vertically in the middle */
+    border-bottom: 1px solid #ddd;
+    font-size: 0.8vw; /* Consistent font size */
+}
+
+th {
+    background-color: #f1f1f1;
+    font-weight: bold; /* Bold headers */
+}
+
+tbody tr {
+    margin-bottom: 0.465vh; /* Adds space between rows */
+    border-left: 0.26vw solid transparent; /* Default border to avoid misalignment */
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
+    border-left: 0.26vw solid transparent; /* Default border */
+}
+
+tbody tr.passed {
+    border-left: 0.26vw solid rgba(14, 133, 68, 0.658);
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
+    /* border-left: 5px solid transparent; Default border */
+}
+
+tbody tr.failed {
+    border-left: 0.26vw solid rgba(184, 26, 26, 0.658);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Elliptical boxes for the "Reason" column */
+.reason {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    display: inline-block;
+    padding: 0.744vh 0.624vw;
+    border-radius: 0.624vw;
+    margin-right: 0.744vh;
+    color: #ffffff;
+    font-size: 0.728vw; /* Slightly smaller font size */
+    background-color: rgba(14, 133, 68, 0.658); /* Default green color */
+    border: 1px solid #fff;
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+tbody tr.failed .reason {
+    background-color: rgba(184, 26, 26, 0.658); /* Red color for failed */
+}
+
+tbody tr.passed .reason {
+    background-color: rgba(14, 133, 68, 0.658); /* Green color for passed */
+}
+
+/* Pagination styling */
+#paginationContainer {
+    margin-top: 1.856vh;
+    text-align: center;
+}
+
+.pagination-button {
+    padding: 0.744vh 0.832vw;
+    margin: 0 0.208vw;
+    border: 1px solid #ddd;
+    background-color: #027392;
+    cursor: pointer;
+    border-radius: 0.208vw;
+    font-size: 0.8vw; /* Consistent font size */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #027392;
+    color: #ffffff;
+}
+
+.pagination-button:hover {
+    background-color: #024b5f;
+}
+
+.pagination-button:hover:not(.active) {
+    background-color: #024b5f;
+}
+
+/* Pie Chart Container */
+#pieChartContainer {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    position: absolute;
+    top: 15vh; /* Adjust as needed */
+    right: 1.04vw;
+    width: 100%;
+    max-width: 20.8vw; /* Adjust as needed */
+    /* margin: 20px 20px 20px 20px; Center align and add spacing */
+    padding: 0.52vw; /* Add padding if necessary */
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+#pieChartContainer canvas {
+    width: 100%;
+    /* box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;  */
+  }
+
+
+/* Summary Message */
+#summaryMessage {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin-top: 1.856vh;
+    text-align: right;
+    font-size: 0.8vw; /* Consistent font size */
+    color: #333;
+}
+
+/* Footer styling */
+footer {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin-top: 1.856vh;
+    background-color: rgba(255, 255, 255, 0);;
+    padding: 0.778vw;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    font-size: 0.8vw; /* Consistent font size */
+}
+
+/* Ensuring the textarea in the JSON section is larger by default */
+#jsonInput {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    width: 100%;
+    height: 27.9vh; /* Adjust height as needed */
+    padding: 0.52vw;
+    border: 1px solid #ccc;
+    border-radius: 0.208vw;
+    box-sizing: border-box;
+    font-size: 0.8vw;
+    resize: vertical; /* Allows the user to resize the textarea vertically if needed */
+}
+
+/* Optional: Style for the JSON section to match the new textarea size */
+.json-container {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin: 1.856vh 20.8vw 1.04vw 1.856vh;
+    padding: 1.04vw;
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Light background for better visibility */
+    border-radius: 0.416vw; /* Optional: Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Shadow for visual depth */
+}
+#jsonSection
+{
+    text-align: left;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#JsonHeading{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin-left: 1.664vw;
+}
+#jsonInput.error {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    border: 0.104vw solid rgba(184, 26, 26, 0.658);
+    box-shadow: 0 0 5px rgba(184, 26, 26, 0.658);
+}
+
+
+/* Optional: Style for the button to match the new textarea size */
+#submitJson {
+    margin-top: 0.923vh;
+    padding: 0.923vh 1.04vw;
+    font-size: 0.8vw;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Base button styling */
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 1.116vh 1.248vw; /* Padding around the button */
+    border: none; /* Remove default borders */
+    border-radius: 0.312vw; /* Rounded corners */
+    font-size: 0.8vw; /* Increase font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Hover effect */
+button:hover {
+    background-color: rgba(0, 123, 255, 0.6); /* Blue with 80% opacity */ /* Darker green background on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+/* Active button effect (when clicked) */
+button:active {
+    background-color: rgba(0, 102, 204, 0.6); /* Darker blue with 90% opacity */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow when clicked */
+    transform: translateY(0); /* Return to original position */
+}
+
+/* Button with a larger size */
+button.large {
+    padding: 1.488vh 1.664vw; /* More padding for larger buttons */
+    font-size: 0.936vw; /* Larger font size */
+}
+
+/* Additional colors for buttons (optional) */
+button.primary {
+    background-color: #007bff; /* Blue background */
+}
+
+button.danger {
+    background-color: #dc3545; /* Red background */
+}
+
+button.success {
+    background-color: #28a745; /* Bright green background */
+}
+
+button.info {
+    background-color: #17a2b8; /* Light blue background */
+}
+
+/* Button with icon (optional) */
+button i {
+    margin-right: 0.416vw; /* Add space between icon and text */
+}
+
+/* Button with full width (optional) */
+button.full-width {
+    width: 100%; /* Full-width button */
+}
+
+/* Hide the default file input */
+/* Hide the default file input */
+#fileInput {
+    display: none;
+}
+
+/* Custom styled label to act as file input button */
+.custom-file-label {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1.116vh 1.248vw;
+    border-radius: 0.312vw;
+    font-size: 0.8vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.custom-file-label:hover {
+    background-color: #45a049;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.custom-file-label:active {
+    background-color: #3e8e41;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+/* Custom message for selected file */
+.custom-file-message {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin-top: 0.93vh;
+    font-size: 0.728vw;
+    color: #333;
+    text-align: center;
+    display: none;
+}
+
+.custom-file-message.show {
+    display: block;
+}
+
+
+/*css button desgins*/
+
+.button-19 {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 0.832vw;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    /* font-family: din-round,sans-serif;
+    font-size: 0.7799999999999999vw;
+    font-weight: 700; */
+    letter-spacing: 0.0416vw;
+    line-height: 1.8599999999999999vh;
+    margin: 0.52vw;
+    outline: none;
+    overflow: visible;
+    padding: 1.209vh 0.832vw;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 50%;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .button-19:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 0.832vw;
+    border-width: 0 0 4px;
+    bottom: -0.372vh;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .button-19:main,
+  .button-19:focus {
+    user-select: auto;
+  }
+  
+  .button-19:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+  
+  .button-19:disabled {
+    cursor: auto;
+  }
+  
+  .button-19:active {
+    border-width: 0.208vw 0 0;
+    background: none;
+  }
+
+
+/*pagination button new*/
+
+.button-19-1 {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 0.832vw;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    /* font-family: din-round,sans-serif;
+    font-size: 0.7799999999999999vw;
+    font-weight: 700; */
+    letter-spacing: 0.0416vw;
+    line-height: 1.8599999999999999vh;
+    margin: 0.52vw;
+    outline: none;
+    overflow: visible;
+    padding: 1.209vh 0.832vw;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* width: 3%; */
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    box-sizing: border-box;
+  }
+  
+  .button-19-1:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 0.832vw;
+    border-width: 0 0 0.208vw;
+    bottom: -0.372vh;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .button-19-1:main,
+  .button-19-1:focus {
+    user-select: auto;
+  }
+  
+  .button-19-1:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+  
+  .button-19-1:disabled {
+    cursor: auto;
+  }
+  
+  .button-19-1:active {
+    border-width: 0.208vw 0 0;
+    background: none;
+  }
+
+/* Styled button */
+/* button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.8vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #004080;
+} */
+
+#dataContainer {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin: 100px 10px 10px 10px;
+    padding: 20px;
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.6);
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent table from wrapping */
+}
+
+/* Ensure the table is responsive within the container */
+#dataContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.856vh;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Light shadow for table */
+    border-radius: 0.52vw; /* Slight rounding of table edges */
+    overflow: hidden;
+    min-width: 41.6vw; /* Set a minimum width for the table */
+}
+
+
+
+#dataContainer th, 
+#dataContainer td {
+    padding: 1.116vh 0.7799999999999999vw;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.8vw;
+}
+
+#dataContainer th{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-size: 0.82vw;
+    font-style: normal;
+}
+
+#dataContainer th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 0.186vh solid #ddd;
+    text-transform: uppercase; /* Adds a bit of professionalism */
+}
+
+#dataContainer tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+}
+
+#dataContainer tbody tr:nth-child(odd) {
+    background-color: #f7f7f7; /* Very subtle alternating row color */
+}
+
+#dataContainer tbody tr:hover {
+    background-color: #f1f1f1; /* Soft hover effect */
+}
+
+#dataContainer tbody tr.failed {
+    background-color: rgba(255, 0, 0, 0.05); /* Subtle red for failed rows */
+}
+
+#dataContainer tbody tr.passed {
+    background-color: rgba(0, 128, 0, 0.05); /* Subtle green for passed rows */
+}
+
+#dataContainer tbody tr.failed td {
+    color: #b81a1a; /* Red text for failed rows */
+}
+
+#dataContainer tbody tr.passed td {
+    color: #0e8544; /* Green text for passed rows */
+}
+
+#dataContainer tbody tr td .reason {
+    padding: 0.744vh 0.624vw;
+    border-radius: 0.624vw;
+    background-color: #e0f7fa;
+    color: #00796b;
+    font-size: 0.728vw;
+}
+
+#dataContainer tbody tr.failed .reason {
+    background-color: rgba(184, 26, 26, 0.1);
+    color: #b81a1a;
+}
+
+#dataContainer tbody tr.passed .reason {
+    background-color: rgba(14, 133, 68, 0.1);
+    color: #0e8544;
+}
+
+
+/* <uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 900 */
+
+.exo-2-h1-font {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+.paginationText{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.accuracyMessage
+{
+    margin-top: 2vh;
+}

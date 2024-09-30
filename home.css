@@ -1,0 +1,106 @@
+body {
+    background: url('Backgriund_twelve.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.neumorphism-container {
+    /* margin-top: 45vh; */
+    display: flex;
+    gap: 4vw;
+}
+
+.neumorphism-div {
+    width: 25vw;
+    height: 22vh;
+    border-radius: 1vh;
+    background: #f8f8f8;
+    box-shadow: inset 7px 7px 9px #d3d3d3,
+    inset -7px -7px 9px #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    padding: 2vh;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* Make sure the pointer cursor is shown */
+}
+
+.neumorphism-div img {
+    max-width: 14vw;
+    max-height: 25vh;
+    object-fit: contain;
+    z-index: 10
+}
+
+.neumorphism-div:hover {
+    width: 35vw;
+    height: 50vh;
+    box-shadow: inset 7px 7px 10px #aeaeae,
+    inset -7px -7px 10px #ffffff;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.neumorphism-div:hover .description {
+    opacity: 1;
+    visibility: visible;
+}
+
+.neumorphism-div:hover img{
+    max-width: 16vw;
+    max-height: 27vh;
+    margin-top: 7vh;
+}
+
+.description {
+    text-align: left;
+    width: 90%;
+    font-size: 1.8vh;
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    bottom: 2vh; /* Adjust as needed */
+    left: 1vw; /* Adjust as needed */
+    padding: 0 1vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scrollText
+{
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    position: absolute;
+    top: 3vh;
+    width: 100%;
+    color: whitesmoke;
+    background: #333;
+    font-size: 1.1vw;
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
