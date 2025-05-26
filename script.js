@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const requiredHeaders = [
         "ProcessName", "ComponentID", "ProcessTier", "ShapeCount", "FlowControlUsed?",
-        "ScriptUsed?", "isInline?", "UnusedShapes?", "NamingSet?", "Compliant?", "Reason", "OverallComment","CreatedDate","CreatedBy"
+        "ScriptUsed?", "isInline?", "UnusedShapes?", "NamingSet?", "Compliant?", "Reason", "OverallComment"
     ];
 
     fileInput.addEventListener('change', function () {
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const requiredTopLevelKeys = ["Total Entries", "Insights"];
         const requiredInsightKeys = [
             "ProcessName", "ComponentID", "ProcessTier", "ShapeCount", "FlowControlUsed?",
-            "ScriptUsed?", "isInline?", "UnusedShapes?", "NamingSet?", "Compliant?", "Reason", "OverallComment"
+            "ScriptUsed?", "isInline?", "UnusedShapes?", "NamingSet?", "Compliant?", "Reason", "OverallComment","CreatedDate","CreatedBy"
         ];
 
         for (const key of requiredTopLevelKeys) {
