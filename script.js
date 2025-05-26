@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const requiredHeaders = [
         "ProcessName", "ComponentID", "ProcessTier", "ShapeCount", "FlowControlUsed?",
-        "ScriptUsed?", "isInline?", "UnusedShapes?", "NamingSet?", "Compliant?", "Reason", "OverallComment"
+        "ScriptUsed?", "isInline?", "UnusedShapes?", "NamingSet?", "Compliant?", "Reason", "OverallComment","CreatedDate","CreatedBy"
     ];
 
     fileInput.addEventListener('change', function () {
